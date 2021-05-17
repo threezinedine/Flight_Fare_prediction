@@ -3,7 +3,7 @@ import pickle
 
 
 def encode_one (data, column_name = 'Airline'):
-    column = data[column_name]
+    column = data[[column_name]]
     column = pd.get_dummies(column, drop_first=True)
     data.drop (column_name, axis = 1, inplace=True)
     data = pd.concat ([data, column], axis = 1)
@@ -73,16 +73,18 @@ def get_train_data():
     train = extract_data()
     y = train['Price']
     X = train.drop ('Price', axis = 1)
+    print (X.columns)
     with open ('train_clean_data.pkl', 'wb') as file:
         pickle.dump((X, y), file)
 
 
 def get_test_data():
     test = extract_data()
+    print (test.columns)
     with open('test_data.pkl', 'wb') as file:
         pickle.dump(test, file)
 
 
 if __name__ == "__main__":
     get_train_data()
-    # get_test_data()
+    get_test_data()

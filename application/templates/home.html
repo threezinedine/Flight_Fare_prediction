@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <form action="", method="POST">
+        {{ form.hidden_tag() }}
+        <fieldset>
+            <legend>Enter the needed feature to get prediction</legend>
+            <div class = "form-group">
+                <div class = "row">
+                    <div class = "col-sm">
+                        {{ form.total_stops.label (class = "form-label") }}
+                        {{ form.total_stops (class = "form-control") }}
+                        {% if form.total_stops.errors %}
+                            <ul style="list-style-type : None; padding: 0">
+                                {% for error in form.total_stops.errors %}
+                                <li class = "alert alert-danger"> {{ error }} </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <div class= "col-sm">
+                        {{ form.airline.label (class = "form-label") }}
+                        {{ form.airline (class = "form-control") }}
+                        {% if form.airline.errors %}
+                            <ul style="list-style-type : None; padding: 0">
+                                {% for error in form.airline.errors %}
+                                <li class = "alert alert-danger"> {{ error }} </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class = "col-sm">
+                        {{ form.source.label (class = "form-label") }}
+                        {{ form.source (class = "form-control") }}
+                        {% if form.source.errors %}
+                            <ul style="list-style-type : None; padding: 0">
+                                {% for error in form.source.errors %}
+                                <li class = "alert alert-danger"> {{ error }} </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <div class= "col-sm">
+                        {{ form.destination.label (class = "form-label") }}
+                        {{ form.destination (class = "form-control") }}
+                        {% if form.destination.errors %}
+                            <ul style="list-style-type : None; padding: 0">
+                                {% for error in form.destination.errors %}
+                                <li class = "alert alert-danger"> {{ error }} </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class = "col-sm">
+                        {{ form.journey_date.label (class = "form-label") }}
+                        {{ form.journey_date (class = "form-control") }}
+                        {% if form.journey_date.errors %}
+                            <ul style="list-style-type : None; padding: 0">
+                                {% for error in form.journey_date.errors %}
+                                <li class = "alert alert-danger"> {{ error }} </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <div class= "col-sm">
+                        {{ form.dep_time.label (class = "form-label") }}
+                        {{ form.dep_time (class = "form-control") }}
+                        {% if form.dep_time.errors %}
+                            <ul style="list-style-type : None; padding: 0">
+                                {% for error in form.dep_time.errors %}
+                                <li class = "alert alert-danger"> {{ error }} </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class = "col-sm">
+                        {{ form.arrival_time.label (class = "form-label") }}
+                        {{ form.arrival_time (class = "form-control") }}
+                        {% if form.arrival_time.errors %}
+                            <ul style="list-style-type : None; padding: 0">
+                                {% for error in form.arrival_time.errors %}
+                                <li class = "alert alert-danger"> {{ error }} </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class = "row">
+                    <legend>Duration</legend>
+                    <div class = "col-sm">
+                        {{ form.hour_duration (class = "form-control") }}
+                        {{form.hour_duration.label (class = "form-label")}}
+                        {% if form.hour_duration.errors %}
+                            <ul style="list-style-type : None; padding: 0">
+                                {% for error in form.hour_duration.errors %}
+                                <li class = "alert alert-danger"> {{ error }} </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <div class= "col-sm">
+                        {{ form.min_duration (class = "form-control") }}
+                        {{form.min_duration.label (class = "form-label")}}
+                        {% if form.min_duration.errors %}
+                            <ul style="list-style-type : None; padding: 0">
+                                {% for error in form.min_duration.errors %}
+                                <li class = "alert alert-danger"> {{ error }} </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <div class="text-center">
+            {{ form.submit (class = "btn btn-primary") }}
+        </div>
+    </form>
+    <div class = "text-center">
+        {{ message }}
+    </div>
+{% endblock %}
